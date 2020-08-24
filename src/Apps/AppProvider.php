@@ -12,4 +12,6 @@ interface AppProvider
     public function findByKey(string $appKey): ?App;
 
     public function findBySecret(string $appSecret): ?App;
+
+    public function findByOrigin(string $appHost): ?App;
 }

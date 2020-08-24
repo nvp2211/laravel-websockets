@@ -48,6 +48,11 @@ class App
         return app(AppProvider::class)->findBySecret($appSecret);
     }
 
+    public static function findByOrigin(string $appOrigin): ?self
+    {
+        return app(AppProvider::class)->findByOrigin($appOrigin);
+    }
+
     public function __construct($appId, string $appKey, string $appSecret)
     {
         if ($appKey === '') {

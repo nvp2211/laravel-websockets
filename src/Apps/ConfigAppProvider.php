@@ -51,6 +51,15 @@ class ConfigAppProvider implements AppProvider
         return $this->instanciate($appAttributes);
     }
 
+    public function findByOrigin(string $appOrigin): ?App
+    {
+        $appAttributes = $this
+            ->apps
+            ->firstWhere('secret', $appOrigin);
+
+        return $this->instanciate($appAttributes);
+    }
+
     protected function instanciate(?array $appAttributes): ?App
     {
         if (! $appAttributes) {
